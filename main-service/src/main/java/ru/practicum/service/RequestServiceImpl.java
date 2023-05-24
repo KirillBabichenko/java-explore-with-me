@@ -3,7 +3,6 @@ package ru.practicum.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.dto.EndpointHitDto;
 import ru.practicum.dto.ParticipationRequestDto;
 import ru.practicum.exception.BadRequestException;
 import ru.practicum.exception.ConflictException;
@@ -17,13 +16,11 @@ import ru.practicum.repository.EventsRepository;
 import ru.practicum.repository.RequestRepository;
 import ru.practicum.repository.UserRepository;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static ru.practicum.mapper.MapperRequest.toRequestDto;
-import static ru.practicum.utility.UtilityClass.formatter;
 
 @Service
 @Transactional(readOnly = true)
