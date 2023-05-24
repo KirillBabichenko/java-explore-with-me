@@ -10,7 +10,8 @@ import java.time.format.DateTimeFormatter;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MapperDto {
-    public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public static final String pattern = "yyyy-MM-dd HH:mm:ss";
+    public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 
     public static EndpointHit toEndpointHit(EndpointHitDto endpointHitDto) {
         return EndpointHit.builder()

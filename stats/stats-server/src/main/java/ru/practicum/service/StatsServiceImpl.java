@@ -57,6 +57,9 @@ public class StatsServiceImpl implements StatsService {
     }
 
     private void checkDate(LocalDateTime startTime, LocalDateTime endTime) {
+        if (startTime == null || endTime == null) {
+            throw new StartEndRangeException("Ошибка времени начала и конца диапазона");
+        }
         if (startTime.isAfter(endTime)) {
             throw new StartEndRangeException("Ошибка времени начала и конца диапазона");
         }
