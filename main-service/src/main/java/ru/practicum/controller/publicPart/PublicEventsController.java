@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.dto.EventFullDto;
-import ru.practicum.dto.EventsShortDto;
+import ru.practicum.dto.event.EventFullDto;
+import ru.practicum.dto.event.EventsShortDto;
 import ru.practicum.service.EventsService;
 
 import javax.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@ package ru.practicum.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.dto.ParticipationRequestDto;
+import ru.practicum.dto.request.ParticipationRequestDto;
 import ru.practicum.model.Request;
 
 import static ru.practicum.utility.UtilityClass.formatter;

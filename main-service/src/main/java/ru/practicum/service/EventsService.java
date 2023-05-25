@@ -1,12 +1,12 @@
 package ru.practicum.service;
 
-import ru.practicum.dto.EventFullDto;
-import ru.practicum.dto.EventRequestStatusUpdateRequest;
-import ru.practicum.dto.EventRequestStatusUpdateResult;
-import ru.practicum.dto.EventsShortDto;
-import ru.practicum.dto.NewEventDto;
-import ru.practicum.dto.ParticipationRequestDto;
-import ru.practicum.dto.UpdateEvent;
+import ru.practicum.dto.event.EventFullDto;
+import ru.practicum.dto.event.EventsShortDto;
+import ru.practicum.dto.event.NewEventDto;
+import ru.practicum.dto.event.UpdateEvent;
+import ru.practicum.dto.request.EventRequestStatusUpdateRequest;
+import ru.practicum.dto.request.EventRequestStatusUpdateResult;
+import ru.practicum.dto.request.ParticipationRequestDto;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;

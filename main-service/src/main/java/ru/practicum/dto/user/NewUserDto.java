@@ -1,13 +1,13 @@
-package ru.practicum.dto;
+package ru.practicum.dto.user;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-@Data
+@Getter
 @Builder
 public class NewUserDto {
     private Long id;

@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.client.StatsClient;
 import ru.practicum.dto.EndpointHitDto;
-import ru.practicum.dto.EventFullDto;
-import ru.practicum.dto.EventRequestStatusUpdateRequest;
-import ru.practicum.dto.EventRequestStatusUpdateResult;
-import ru.practicum.dto.EventsShortDto;
-import ru.practicum.dto.NewEventDto;
-import ru.practicum.dto.ParticipationRequestDto;
-import ru.practicum.dto.UpdateEvent;
 import ru.practicum.dto.ViewStatsDto;
+import ru.practicum.dto.event.EventFullDto;
+import ru.practicum.dto.event.EventsShortDto;
+import ru.practicum.dto.event.NewEventDto;
+import ru.practicum.dto.event.UpdateEvent;
+import ru.practicum.dto.request.EventRequestStatusUpdateRequest;
+import ru.practicum.dto.request.EventRequestStatusUpdateResult;
+import ru.practicum.dto.request.ParticipationRequestDto;
 import ru.practicum.exception.BadRequestException;
 import ru.practicum.exception.ConflictException;
 import ru.practicum.exception.IdNotFoundException;
@@ -80,7 +80,7 @@ public class EventsServiceImpl implements EventsService {
             dto.setRequestModeration(true);
         }
         LocalDateTime nowDateTime = LocalDateTime.now();
-        checkDateTimeForDto(nowDateTime, LocalDateTime.parse(dto.getEventDate(), formatter));
+        checkDateTimeForDto(nowDateTime, dto.getEventDate());
         Category category = categoryRepository.findById(dto.getCategory())
                 .orElseThrow(() -> new IdNotFoundException("Категория с таким id  не найдена"));
         User user = userRepository.findById(userId)
@@ -123,7 +123,7 @@ public class EventsServiceImpl implements EventsService {
         Event event = findEventById(eventId);
         checkUser(userId);
         if (dto.getEventDate() != null) {
-            checkDateTimeForDto(LocalDateTime.now(), LocalDateTime.parse(dto.getEventDate(), formatter));
+            checkDateTimeForDto(LocalDateTime.now(), dto.getEventDate());
         }
         if (!(event.getState().equals(State.CANCELED) || event.getState().equals(State.PENDING))) {
             throw new IncorrectStateException("Некорректный статус. Изменить можно только отмененные " +
@@ -184,7 +184,7 @@ public class EventsServiceImpl implements EventsService {
     public EventFullDto updateEventByAdmin(Long eventId, UpdateEvent dto) {
         Event event = findEventById(eventId);
         if (dto.getEventDate() != null) {
-            if (LocalDateTime.now().plusHours(1).isAfter(LocalDateTime.parse(dto.getEventDate(), formatter))) {
+            if (LocalDateTime.now().plusHours(1).isAfter(dto.getEventDate())) {
                 throw new BadRequestException("Ошибка. Дата и время на которые намечено событие " +
                         "не может быть раньше, чем через час от текущего момента");
             }
@@ -431,7 +431,7 @@ public class EventsServiceImpl implements EventsService {
                 .orElseThrow(() -> new IdNotFoundException("Категория с таким id  не найдена"))));
         ofNullable(dto.getDescription()).ifPresent(event::setDescription);
         ofNullable(dto.getEventDate()).ifPresent(
-                dateTime -> event.setEventDate(LocalDateTime.parse(dateTime, formatter)));
+                event::setEventDate);
         if (dto.getLocation() != null) {
             List<Location> location = locationRepository.findByLatAndLon(dto.getLocation().getLat(), dto.getLocation().getLon());
             if (location.isEmpty()) {

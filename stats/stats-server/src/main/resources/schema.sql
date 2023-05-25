@@ -9,3 +9,4 @@ create table if not exists ENDPOINT_HIT (
     constraint ENDPOINT_HIT_PK primary key (id)
 );
 
+CREATE UNIQUE INDEX ENDPOINT_HIT_idx ON ENDPOINT_HIT (id);

@@ -2,7 +2,7 @@ package ru.practicum.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.dto.NewCategoryDto;
+import ru.practicum.dto.category.NewCategoryDto;
 import ru.practicum.model.Category;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

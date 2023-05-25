@@ -1,12 +1,12 @@
-package ru.practicum.dto;
+package ru.practicum.dto.compilation;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 
-@Data
+@Getter
 @Builder
 public class UpdateCompilationRequest {
     private List<Long> events;

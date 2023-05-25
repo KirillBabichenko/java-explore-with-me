@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.dto.NewCategoryDto;
+import ru.practicum.dto.category.NewCategoryDto;
 import ru.practicum.exception.ConflictException;
 import ru.practicum.exception.IdNotFoundException;
 import ru.practicum.mapper.MapperCategory;

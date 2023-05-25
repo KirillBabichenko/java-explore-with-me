@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.dto.NewUserDto;
+import ru.practicum.dto.user.NewUserDto;
 import ru.practicum.mapper.MapperUser;
 import ru.practicum.model.User;
 import ru.practicum.repository.UserRepository;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public List<NewUserDto> getUsers(List<Long> ids, Integer from, Integer size) {
         PageRequest page = PageRequest.of(from, size);
         if (ids == null) {
-            return repository.findAllUsers(page).stream()
+            return repository.findAll(page).stream()
                     .map(MapperUser::toUserDto)
                     .collect(Collectors.toList());
         } else {

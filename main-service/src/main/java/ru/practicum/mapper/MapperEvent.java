@@ -2,9 +2,9 @@ package ru.practicum.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.dto.EventFullDto;
-import ru.practicum.dto.EventsShortDto;
-import ru.practicum.dto.NewEventDto;
+import ru.practicum.dto.event.EventFullDto;
+import ru.practicum.dto.event.EventsShortDto;
+import ru.practicum.dto.event.NewEventDto;
 import ru.practicum.model.Category;
 import ru.practicum.model.Event;
 import ru.practicum.model.State;
@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 
 import static ru.practicum.mapper.MapperCategory.toCategoryDto;
 import static ru.practicum.mapper.MapperUser.toUserShortDto;
-import static ru.practicum.utility.UtilityClass.formatter;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MapperEvent {
@@ -25,14 +24,14 @@ public class MapperEvent {
                 .annotation(event.getAnnotation())
                 .category(toCategoryDto(event.getCategory()))
                 .confirmedRequests(event.getConfirmedRequests())
-                .createdOn(event.getCreatedOn().format(formatter))
+                .createdOn(event.getCreatedOn())
                 .description(event.getDescription())
-                .eventDate(event.getEventDate().format(formatter))
+                .eventDate(event.getEventDate())
                 .initiator(toUserShortDto(event.getInitiator()))
                 .location(event.getLocation())
                 .paid(event.getPaid())
                 .participantLimit(event.getParticipantLimit())
-                .publishedOn((event.getPublishedOn() == null) ? null : event.getPublishedOn().format(formatter))
+                .publishedOn((event.getPublishedOn() == null) ? null : event.getPublishedOn())
                 .requestModeration(event.getRequestModeration())
                 .state(event.getState())
                 .title(event.getTitle())
@@ -47,7 +46,7 @@ public class MapperEvent {
                 .confirmedRequests(0L)
                 .description(newEventDto.getDescription())
                 .createdOn(dateTime)
-                .eventDate(LocalDateTime.parse(newEventDto.getEventDate(), formatter))
+                .eventDate(newEventDto.getEventDate())
                 .initiator(user)
                 .location(newEventDto.getLocation())
                 .paid(newEventDto.getPaid())
@@ -65,7 +64,7 @@ public class MapperEvent {
                 .annotation(event.getAnnotation())
                 .category(toCategoryDto(event.getCategory()))
                 .confirmedRequests(event.getConfirmedRequests())
-                .eventDate(event.getEventDate().format(formatter))
+                .eventDate(event.getEventDate())
                 .initiator(toUserShortDto(event.getInitiator()))
                 .paid(event.getPaid())
                 .title(event.getTitle())

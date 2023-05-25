@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.dto.NewCategoryDto;
+import ru.practicum.dto.category.NewCategoryDto;
 import ru.practicum.service.CategoryService;
 
 import javax.validation.Valid;
@@ -23,7 +23,6 @@ import javax.validation.Valid;
 @RequestMapping(path = "/admin/categories")
 @RequiredArgsConstructor
 public class AdminCategoryController {
-
     private final CategoryService categoryService;
 
     @PostMapping

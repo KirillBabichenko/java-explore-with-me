@@ -1,11 +1,11 @@
-package ru.practicum.dto;
+package ru.practicum.dto.request;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
 import java.util.List;
 
-@Data
+@Getter
 @Builder
 public class EventRequestStatusUpdateRequest {
     private List<Long> requestIds;

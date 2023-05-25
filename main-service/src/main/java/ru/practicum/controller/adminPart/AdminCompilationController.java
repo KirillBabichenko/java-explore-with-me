@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.dto.CompilationDto;
-import ru.practicum.dto.NewCompilationDto;
-import ru.practicum.dto.UpdateCompilationRequest;
+import ru.practicum.dto.compilation.CompilationDto;
+import ru.practicum.dto.compilation.NewCompilationDto;
+import ru.practicum.dto.compilation.UpdateCompilationRequest;
 import ru.practicum.service.CompilationService;
 
 import javax.validation.Valid;
@@ -25,7 +25,6 @@ import javax.validation.Valid;
 @RequestMapping(path = "/admin/compilations")
 @RequiredArgsConstructor
 public class AdminCompilationController {
-
     private final CompilationService service;
 
     @PostMapping

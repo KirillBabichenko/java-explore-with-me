@@ -1,10 +1,10 @@
-package ru.practicum.dto;
+package ru.practicum.dto.request;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import ru.practicum.model.State;
 
-@Data
+@Getter
 @Builder
 public class ParticipationRequestDto {
     private Long id;

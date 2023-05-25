@@ -2,9 +2,9 @@ package ru.practicum.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.dto.CompilationDto;
-import ru.practicum.dto.EventsShortDto;
-import ru.practicum.dto.NewCompilationDto;
+import ru.practicum.dto.compilation.CompilationDto;
+import ru.practicum.dto.compilation.NewCompilationDto;
+import ru.practicum.dto.event.EventsShortDto;
 import ru.practicum.model.Compilation;
 import ru.practicum.model.Event;
 

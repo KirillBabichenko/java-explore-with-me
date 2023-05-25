@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.dto.EventFullDto;
-import ru.practicum.dto.UpdateEvent;
+import ru.practicum.dto.event.EventFullDto;
+import ru.practicum.dto.event.UpdateEvent;
 import ru.practicum.service.EventsService;
 
 import javax.validation.Valid;
