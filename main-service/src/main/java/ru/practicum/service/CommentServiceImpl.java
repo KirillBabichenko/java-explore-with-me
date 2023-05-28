@@ -74,12 +74,12 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     public CommentDto updateComment(Long userId, Long eventId, Long commentId, NewCommentDto commentDto) {
         User user = checkUser(userId);
-        Event event = findEventById(eventId);
-        if (!event.getInitiator().getId().equals(user.getId())) {
-            throw new ConflictException("Редактировать комментарий может только его автор");
-        }
+        findEventById(eventId);
         EventComment eventComment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new IdNotFoundException("Комментария с таким id  не найдено"));
+        if (!eventComment.getAuthor().getId().equals(user.getId())) {
+            throw new ConflictException("Редактировать комментарий может только его автор");
+        }
         eventComment.setText(commentDto.getText());
         EventComment updatedEventComment = commentRepository.save(eventComment);
         return toCommentDto(updatedEventComment);

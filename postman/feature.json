@@ -23,7 +23,6 @@
 							"\r",
 							"pm.test(\"Пользователь должен содержать поля: id, name, email\", function(){\r",
 							"pm.expect(target).to.have.property('id');\r",
-							"pm.expect(target.id, '\"id\" должно равняться 1').to.eql(1);\r",
 							"pm.expect(target).to.have.property('name');\r",
 							"pm.expect(target.name, '\"name\" должно равняться New User').to.eql('New User');\r",
 							"pm.expect(target).to.have.property('email');\r",
@@ -265,7 +264,7 @@
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						}
 					]
 				}
@@ -318,7 +317,7 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "1"
+							"value": "136"
 						},
 						{
 							"key": "eventId",
@@ -375,11 +374,11 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "1"
+							"value": "136"
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						}
 					]
 				}
@@ -449,7 +448,7 @@
 					"variable": [
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						}
 					]
 				}
@@ -519,11 +518,11 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "1"
+							"value": "136"
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						}
 					]
 				}
@@ -602,7 +601,6 @@
 							"\r",
 							"pm.test(\"Пользователь должен содержать поля: id, name, email\", function(){\r",
 							"pm.expect(target).to.have.property('id');\r",
-							"pm.expect(target.id, '\"id\" должно равняться 2').to.eql(2);\r",
 							"pm.expect(target).to.have.property('name');\r",
 							"pm.expect(target.name, '\"name\" должно равняться Second User').to.eql('Second User');\r",
 							"pm.expect(target).to.have.property('email');\r",
@@ -787,7 +785,7 @@
 					"variable": [
 						{
 							"key": "idEvent",
-							"value": "1"
+							"value": "106"
 						}
 					]
 				}
@@ -833,7 +831,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/comments?idUser=1",
+					"raw": "http://localhost:8080/comments?idUser=136",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -845,7 +843,7 @@
 					"query": [
 						{
 							"key": "idUser",
-							"value": "1"
+							"value": "136"
 						}
 					]
 				}
@@ -958,7 +956,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/comments?text=коММентаРий&idUser=1",
+					"raw": "http://localhost:8080/comments?text=коММентаРий&idUser=136",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -974,7 +972,7 @@
 						},
 						{
 							"key": "idUser",
-							"value": "1"
+							"value": "136"
 						}
 					]
 				}
@@ -1028,11 +1026,11 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "2"
+							"value": "137"
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						},
 						{
 							"key": "commentId",
@@ -1058,7 +1056,7 @@
 							"\r",
 							"const target = pm.response.json();\r",
 							"\r",
-							"pm.test(\"Категория должна содержать поля: id, authorName, text, created\", function(){\r",
+							"pm.test(\"Комментарий должен содержать поля: id, authorName, text, created\", function(){\r",
 							"pm.expect(target).to.have.property('id');\r",
 							"pm.expect(target).to.have.property('authorName');\r",
 							"pm.expect(target).to.have.property('text');\r",
@@ -1106,11 +1104,11 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "1"
+							"value": "136"
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						},
 						{
 							"key": "commentId",
@@ -1136,7 +1134,7 @@
 							"\r",
 							"const target = pm.response.json();\r",
 							"\r",
-							"pm.test(\"Категория должна содержать поля: id, authorName, text, created\", function(){\r",
+							"pm.test(\"Комментарий должен содержать поля: id, authorName, text, created\", function(){\r",
 							"pm.expect(target).to.have.property('id');\r",
 							"pm.expect(target).to.have.property('authorName');\r",
 							"pm.expect(target).to.have.property('text');\r",
@@ -1227,11 +1225,11 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "2"
+							"value": "137"
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						},
 						{
 							"key": "commentId",
@@ -1278,11 +1276,11 @@
 					"variable": [
 						{
 							"key": "userId",
-							"value": "1"
+							"value": "136"
 						},
 						{
 							"key": "eventId",
-							"value": "1"
+							"value": "106"
 						},
 						{
 							"key": "commentId",
