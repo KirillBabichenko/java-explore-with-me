@@ -61,9 +61,11 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     public void deleteComment(Long userId, Long eventId, Long id) {
         User user = checkUser(userId);
-        Event event = findEventById(eventId);
-        if (!event.getInitiator().getId().equals(user.getId())) {
-            throw new ConflictException("Комментарий может удалить только его автор");
+        findEventById(eventId);
+        EventComment eventComment = commentRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Комментария с таким id  не найдено"));
+        if (!eventComment.getAuthor().getId().equals(user.getId())) {
+            throw new ConflictException("Удалить комментарий может только его автор");
         }
         commentRepository.deleteById(id);
     }
