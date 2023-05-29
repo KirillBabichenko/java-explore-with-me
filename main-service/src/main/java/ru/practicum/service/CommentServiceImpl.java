@@ -60,8 +60,7 @@ public class CommentServiceImpl implements CommentService {
      */
     @Transactional
     public void deleteComment(Long userId, Long eventId, Long id) {
-        User user = checkUser(userId);
-        findEventById(eventId);
+        User user = checkUserAndEvent(userId, eventId);
         EventComment eventComment = commentRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Комментария с таким id  не найдено"));
         if (!eventComment.getAuthor().getId().equals(user.getId())) {
@@ -75,8 +74,7 @@ public class CommentServiceImpl implements CommentService {
      */
     @Transactional
     public CommentDto updateComment(Long userId, Long eventId, Long commentId, NewCommentDto commentDto) {
-        User user = checkUser(userId);
-        findEventById(eventId);
+        User user = checkUserAndEvent(userId, eventId);
         EventComment eventComment = commentRepository.findById(commentId)
                 .orElseThrow(() -> new IdNotFoundException("Комментария с таким id  не найдено"));
         if (!eventComment.getAuthor().getId().equals(user.getId())) {
@@ -138,14 +136,19 @@ public class CommentServiceImpl implements CommentService {
         return toCommentDto(updatedEventComment);
     }
 
-    private User checkUser(Long idUser) {
-        return userRepository.findById(idUser)
+    private User checkUser(Long userId) {
+        return userRepository.findById(userId)
                 .orElseThrow(() -> new IdNotFoundException("Пользователь с таким id  не найден"));
     }
 
     private Event findEventById(Long eventId) {
         return eventsRepository.findById(eventId)
                 .orElseThrow(() -> new IdNotFoundException("Событие с таким id не найдено"));
+    }
+
+    private User checkUserAndEvent(Long userId, Long eventId) {
+        findEventById(eventId);
+        return checkUser(userId);
     }
 
 }
